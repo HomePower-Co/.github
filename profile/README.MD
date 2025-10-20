@@ -145,6 +145,32 @@ aws ssm start-session \
   --document-name AWS-StartPortForwardingSessionToRemoteHost \
   --parameters '{"host":["host-to-conect"],"portNumber":["5432"],"localPortNumber":["5434"]}'
 ```
+### Conexión a database mediante Session Manager (Windows)
+
+#### Declaracion del archivo de parametro
+Este archivo debe contener los parámetros y valor necesarios para poder realizar una conexión mediante Session Manager, de la siguiente manera debe verse el archivo de parámetros:
+
+```bash
+{
+    "host": [
+       "host-to-conect"
+    ],
+    "portNumber": [
+        "5432"
+    ],
+    "localPortNumber": [
+        "5432"
+    ]
+}
+```
+La conexión se realiza de la siguiente manera:
+
+```bash
+# Túnel a puerto local
+aws ssm start-session --target  i-0f7e8428b6bb27690  --document-name AWS-StartPortForwardingSessionToRemoteHost --parameters file://params.json --region us-east-2
+```
+
+
 
 ### Obtener datos de conexión
 
