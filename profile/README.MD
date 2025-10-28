@@ -141,7 +141,7 @@ session-manager-plugin
 ```bash
 # Túnel a puerto local
 aws ssm start-session \
-  --target $(aws ec2 describe-instances --filters "Name=tag:Name,Values=bastion" --query "Reservations[*].Instances[*].InstanceId" --output text) \
+  --target $(aws ec2 describe-instances --filters "Name=tag:Name,Values=bastion" "Name=instance-state-name,Values=running" --query "Reservations[*].Instances[*].InstanceId" --output text) \
   --document-name AWS-StartPortForwardingSessionToRemoteHost \
   --parameters '{"host":["host-to-conect"],"portNumber":["5432"],"localPortNumber":["5434"]}'
 ```
