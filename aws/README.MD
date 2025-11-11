@@ -36,9 +36,9 @@ aws --version
 
 1. Descargar el instalador MSI desde: https://awscli.amazonaws.com/AWSCLIV2.msi
 2. Ejecutar el instalador
-3. Abrir PowerShell o CMD y verificar:
+3. Abrir CMD y verificar:
 
-```powershell
+```bash
 aws --version
 ```
 
@@ -100,7 +100,7 @@ export AWS_PROFILE=hpowerco-dev
 
 ### Configurar perfil predeterminado (windows)
 
-```powershell
+```bash
 # Establecer variable de entorno linux
 SET AWS_PROFILE=hpowerco-dev
 ```
